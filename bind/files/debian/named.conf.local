@@ -97,7 +97,7 @@ logging {
     updatelog;
   };
   channel default_basic_log {
-    file "/var/log/named/bind.log" versions 3 size 5m;
+    file "{{ map.log_dir }}bind.log" versions 3 size 5m;
     severity warning;
     print-time yes;
     print-severity yes;
