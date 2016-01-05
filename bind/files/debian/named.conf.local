@@ -85,7 +85,7 @@ logging {
   category lame-servers { null; };
 
   channel 'updatelog' {
-    file "{{ map.log_dir }}update.log" versions 3 size 5m;
+    file "{{ map.log_dir }}/update.log" versions 3 size 5m;
     print-time yes;
     print-severity yes;
     print-category yes;
@@ -97,7 +97,7 @@ logging {
     updatelog;
   };
   channel default_basic_log {
-    file "{{ map.log_dir }}bind.log" versions 3 size 5m;
+    file "{{ map.log_dir }}/bind.log" versions 3 size 5m;
     severity warning;
     print-time yes;
     print-severity yes;
