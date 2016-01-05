@@ -75,9 +75,12 @@ match-clients {
 {%- endfor %}
 
 logging {
+  {% if args['querylog'] is defined and args['querylog'] -%}
   channel "querylog" {
     file "{{ map.log_dir }}/query.log";
     print-time yes;
   };
   category queries { querylog; };
+  {%- endif -%}
+  category lame-servers { null; };
 };
