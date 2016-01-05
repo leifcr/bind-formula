@@ -75,7 +75,7 @@ match-clients {
 {%- endfor %}
 
 logging {
-  {% if args['querylog'] is defined and args['querylog'] -%}
+  {% if salt['pillar.get']('bind:config:querylog', False) -%}
   channel "querylog" {
     file "{{ map.log_dir }}/query.log";
     print-time yes;
