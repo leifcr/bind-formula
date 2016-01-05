@@ -83,4 +83,27 @@ logging {
   category queries { querylog; };
   {%- endif -%}
   category lame-servers { null; };
+
+  channel 'updatelog' {
+    file "{{ map.log_dir }}update.log" versions 3 size 5m;
+    print-time yes;
+    print-severity yes;
+    print-category yes;
+  };
+  category update{
+    updatelog;
+  };
+  category update-security{
+    updatelog;
+  };
+  channel default_basic_log {
+    file "/var/log/named/bind.log" versions 3 size 5m;
+    severity warning;
+    print-time yes;
+    print-severity yes;
+    print-category yes;
+  };
+  category default{
+    default_basic_log;
+  };  
 };
