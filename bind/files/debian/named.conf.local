@@ -84,7 +84,7 @@ logging {
   {%- endif -%}
   category lame-servers { null; };
 
-  channel 'updatelog' {
+  channel updatelog {
     file "{{ map.log_dir }}/update.log" versions 3 size 5m;
     print-time yes;
     print-severity yes;
