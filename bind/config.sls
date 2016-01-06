@@ -82,6 +82,8 @@ bind_local_config:
     - require:
       - pkg: bind
       - file: {{ map.log_dir }}/query.log
+      - file: {{ map.log_dir }}/update.log
+      - file: {{ map.log_dir }}/bind.log
     - watch_in:
       - service: bind
 
