@@ -1,4 +1,7 @@
-{{ map.log_dir }}/query.log {
+{{ map.log_dir }}/query.log 
+{{ map.log_dir }}/bind.log
+{{ map.log_dir }}/update.log
+{
     rotate 7
     daily
     missingok
