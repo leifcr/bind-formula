@@ -7,6 +7,4 @@ bind:
     - name: {{ map.service }}
     - enable: True
     - reload: True
-    - require:
-      - sls: openvpn
 
