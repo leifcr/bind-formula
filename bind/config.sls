@@ -17,8 +17,26 @@ bind_restart:
     - reload: False
     - watch:
       - file: {{ map.log_dir }}/query.log
+      - file: {{ map.log_dir }}/update.log
+      - file: {{ map.log_dir }}/bind.log
 
 {{ map.log_dir }}/query.log:
+  file.managed:
+    - user: {{ salt['pillar.get']('bind:config:user', map.user) }}
+    - group: {{ salt['pillar.get']('bind:config:group', map.group) }}
+    - mode: 644
+    - require:
+      - file: {{ map.log_dir }}
+
+{{ map.log_dir }}/bind.log:
+  file.managed:
+    - user: {{ salt['pillar.get']('bind:config:user', map.user) }}
+    - group: {{ salt['pillar.get']('bind:config:group', map.group) }}
+    - mode: 644
+    - require:
+      - file: {{ map.log_dir }}
+
+{{ map.log_dir }}/update.log:
   file.managed:
     - user: {{ salt['pillar.get']('bind:config:user', map.user) }}
     - group: {{ salt['pillar.get']('bind:config:group', map.group) }}
